@@ -57,22 +57,33 @@ Total Blocks:
 
 {% for block in chain %}
 
-<div style="border:1px solid black;padding:10px;margin:10px;">
+<div class="block">
 
-<p><b>Block:</b> {{ block.index }}</p>
+<h3>Block {{ block.index }}</h3>
 
-<p><b>Timestamp:</b> {{ block.timestamp }}</p>
+<p>
+<b>Timestamp:</b>
+{{ block.timestamp }}
+</p>
 
-<p><b>Proof:</b> {{ block.proof }}</p>
+<p>
+<b>Proof:</b>
+{{ block.proof }}
+</p>
 
-<p><b>Previous Hash:</b> {{ block.previous_hash }}</p>
+<p>
+<b>Previous Hash:</b>
+{{ block.previous_hash }}
+</p>
 
-<p><b>Data:</b> {{ block.data }}</p>
+<p>
+<b>Vote Data:</b>
+{{ block.data }}
+</p>
 
 </div>
 
 {% endfor %}
-
 <br>
 
 <a href="/results">
