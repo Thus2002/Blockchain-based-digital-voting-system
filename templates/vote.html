@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vote</title>
+</head>
+<body>
+
+<h1>Cast Your Vote</h1>
+
+<p>
+Logged in Voter ID:
+<b>{{ voter_id }}</b>
+</p>
+
+<form action="/vote" method="POST">
+
+    <input type="radio"
+           name="candidate"
+           value="Candidate A"
+           required>
+    Candidate A
+    <br><br>
+
+    <input type="radio"
+           name="candidate"
+           value="Candidate B">
+    Candidate B
+    <br><br>
+
+    <input type="radio"
+           name="candidate"
+           value="Candidate C">
+    Candidate C
+    <br><br>
+
+    <button type="submit">
+        Submit Vote
+    </button>
+
+</form>
+
+</body>
+</html>
