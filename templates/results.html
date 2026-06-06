@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Election Results</title>
+</head>
+<body>
+
+<h1>Election Results</h1>
+
+<table border="1">
+
+<tr>
+    <th>Candidate</th>
+    <th>Total Votes</th>
+</tr>
+
+{% for row in results %}
+
+<tr>
+    <td>{{ row[0] }}</td>
+    <td>{{ row[1] }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br><br>
+
+<a href="/">
+Back to Login
+</a>
+
+</body>
+</html>
