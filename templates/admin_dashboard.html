@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+
+<h1>Admin Dashboard</h1>
+
+<h2>Registered Voters</h2>
+
+<table border="1">
+
+<tr>
+    <th>Name</th>
+    <th>Voter ID</th>
+    <th>Email</th>
+    <th>Voted</th>
+</tr>
+
+{% for voter in voters %}
+
+<tr>
+    <td>{{ voter[0] }}</td>
+    <td>{{ voter[1] }}</td>
+    <td>{{ voter[2] }}</td>
+    <td>{{ voter[3] }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<hr>
+
+<h2>Blockchain Ledger</h2>
+
+{% for block in chain %}
+
+<div style="border:1px solid black;padding:10px;margin:10px;">
+
+<p><b>Block:</b> {{ block.index }}</p>
+
+<p><b>Timestamp:</b> {{ block.timestamp }}</p>
+
+<p><b>Proof:</b> {{ block.proof }}</p>
+
+<p><b>Previous Hash:</b> {{ block.previous_hash }}</p>
+
+<p><b>Data:</b> {{ block.data }}</p>
+
+</div>
+
+{% endfor %}
+
+<br>
+
+<a href="/results">
+View Results
+</a>
+
+</body>
+</html>
