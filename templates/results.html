@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Election Results</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">  
+
+<title>Election Results</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static',
+filename='style.css') }}">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
+
 <body>
+
+<div class="container">
 
 <h1>Election Results</h1>
 
-<table border="1">
+<table>
 
 <tr>
-    <th>Candidate</th>
-    <th>Total Votes</th>
+<th>Candidate</th>
+<th>Votes</th>
 </tr>
 
 {% for row in results %}
 
 <tr>
-    <td>{{ row[0] }}</td>
-    <td>{{ row[1] }}</td>
+<td>{{ row[0] }}</td>
+<td>{{ row[1] }}</td>
 </tr>
 
 {% endfor %}
@@ -28,9 +39,41 @@
 
 <br><br>
 
-<a href="/">
-Back to Login
-</a>
+<canvas id="voteChart"></canvas>
+
+</div>
+
+<script>
+
+const labels = [
+{% for row in results %}
+"{{ row[0] }}",
+{% endfor %}
+];
+
+const data = [
+{% for row in results %}
+{{ row[1] }},
+{% endfor %}
+];
+
+new Chart(
+document.getElementById('voteChart'),
+{
+type:'bar',
+
+data:{
+labels:labels,
+
+datasets:[{
+label:'Votes',
+data:data
+}]
+}
+});
+
+</script>
 
 </body>
+
 </html>
